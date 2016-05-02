@@ -12,8 +12,8 @@ API Bootstrap. You can make API easily by using MySQL/postgreSQL/SQLite. You can
 ### 開発速度の向上  
 	- SPA開発における高速開発化(javascriptからまるでDBを直接操作できるかのように)  
 
-### セキュリティ  
-	- サーバーサイドスクリプトの脆弱性とかを見ずに済む？  
+### 車輪の再開発の防止  
+	- 同じようなAPIを作らずに済む  
 
 
 ## 使い方  
