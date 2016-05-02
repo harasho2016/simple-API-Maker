@@ -41,11 +41,11 @@ API Bootstrap. You can make API easily by using MySQL/postgreSQL/SQLite. You can
 		else if insert  
 			- "Insert" Target  
 
-### QueryMethod(only UPDATE)  
+### QueryMethod(only UPDATE Method)  
 	- set_{columnName}  
 		- "UPDATE(SET)" Target  
 
-### QueryMethod(only Select)  
+### QueryMethod(only SELECT Method)  
 	- numCountBool=true, false(default)  
 		- trueの場合Select count(*) from {tableName}  
 		- defaultはfalse  
