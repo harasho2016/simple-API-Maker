@@ -4,9 +4,7 @@ API Bootstrap. You can make API easily by using MySQL. You can set up within 5 m
 （defaultはMySQLに対応）  
 
 
-/* ========================================= */  
 ## できること  
-/* ========================================= */  
 ■ MySQL, postgreSQL, SQLiteを5分でAPI化する  
 
 ■ sys/var_labo.phpにドキュメントルートを設定し、MySQLへのアクセスユーザーを指定する  
@@ -17,9 +15,7 @@ API Bootstrap. You can make API easily by using MySQL. You can set up within 5 m
 ■ 利用可能なパラメータ: LIMIT, Order By col_name DESC, Order By col_name ASC, Order By Rand()  
 
 
-/* ========================================= */  
 ## 目的  
-/* ========================================= */  
 ■ DBアクセスの負荷軽減(想定)  
 	- 想定①　アプリケーションレベルでゴリゴリ実装するもよし  
 	- 想定②　Squid、リバースプロキシと併用  
@@ -31,9 +27,7 @@ API Bootstrap. You can make API easily by using MySQL. You can set up within 5 m
 	- サーバーサイドスクリプトの脆弱性とかを見ずに済む？  
 
 
-/* ========================================= */  
 ## 使い方  
-/* ========================================= */  
 ■ 呼び出し方  
 	/{VersionInfo}/{DBName}/{TableName}?{columnName}=val&set_{columnName}=val&{FunctionName}=val  
 
@@ -77,9 +71,7 @@ API Bootstrap. You can make API easily by using MySQL. You can set up within 5 m
 		- 無指定の場合は50が  
 
 
-/* ========================================= */  
 ## 値例  
-/* ========================================= */  
 ■ SELECT  
 http://127.0.01/{VersionInfo}/{DBName}/{TableName}  
 　　=> SELECT * FROM DBName.TableName LIMIT 50  
