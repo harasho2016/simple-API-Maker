@@ -1,18 +1,7 @@
 # Simple API Makerの概要
 MySQL, postgreSQL, SQLiteを5分でAPI化し、API経由でアクセスできるようにするモジュールです。  
-API Bootstrap. You can make API easily by using MySQL. You can set up within 5 minutes.  
-（defaultはMySQLに対応）  
-
-
-## できること  
-### MySQL, postgreSQL, SQLiteを5分でAPI化する  
-
-### sys/var_labo.phpにドキュメントルートを設定し、MySQLへのアクセスユーザーを指定する  
-　　　※ DBNameはURI経由でも指定可能(※要コメントアウト)  
-
-### 利用可能なメソッド:  SELECT, INSERT, UPDATE, DELETE  
-
-### 利用可能なパラメータ: LIMIT, Order By col_name DESC, Order By col_name ASC, Order By Rand()  
+API経由で、Select, INSERT, UPDATE, DELETEの操作ができ、Limit, ORDER BYに対応しています。
+API Bootstrap. You can make API easily by using MySQL/postgreSQL/SQLite. You can set up within 5 minutes.  
 
 
 ## 目的  
@@ -71,12 +60,11 @@ API Bootstrap. You can make API easily by using MySQL. You can set up within 5 m
 
 ## 値例  
 ### SELECT  
-http://127.0.01/{VersionInfo}/{DBName}/{TableName}  
-　　=> SELECT * FROM DBName.TableName LIMIT 50  
-※ Default値; limit 50  
-
-http://127.0.01/{VersionInfo}/{DBName}/{TableName}?{colName1}=val1&{colName2}=val2&OrderBy=DESC&OrderByTarget={colName1}&MethodName=SELECT&qm_limit=15  
-　　=> SELECT * FROM DBName.TableName WHERE {colName1}=val1 AND {colName2}=val2 Order by {colName1} DESC LIMIT 15  
+	- http://127.0.01/{VersionInfo}/{DBName}/{TableName}  
+	　　- SELECT * FROM DBName.TableName LIMIT 50  
+	※ Default値; limit 50  
+	- http://127.0.01/{VersionInfo}/{DBName}/{TableName}?{colName1}=val1&{colName2}=val2&OrderBy=DESC&OrderByTarget={colName1}&MethodName=SELECT&qm_limit=15  
+	　　- SELECT * FROM DBName.TableName WHERE {colName1}=val1 AND {colName2}=val2 Order by {colName1} DESC LIMIT 15  
 
 ### INSERT  
 http://127.0.01/{VersionInfo}/{DBName}/{TableName}?qm_methodName=INSERT&{colName1}=val1&{colName2}=val2  
