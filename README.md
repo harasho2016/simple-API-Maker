@@ -1,9 +1,10 @@
 # Simple API Maker
-MySQL, postgreSQL, SQLiteを5分でAPI化し、API経由でアクセスできるようにするモジュールです。
-API Bootstrap. You can make API easily by using MySQL. You can set up within 5 minutes.
-（defaultはMySQLに対応）
+MySQL, postgreSQL, SQLiteを5分でAPI化し、API経由でアクセスできるようにするモジュールです。  
+API Bootstrap. You can make API easily by using MySQL. You can set up within 5 minutes.  
+（defaultはMySQLに対応）  
 
-/* できること
+
+/* できること  
 ========================================= */
   ■ MySQL, postgreSQL, SQLiteを5分でAPI化する
   ■ sys/var_labo.phpにドキュメントルートを設定し、MySQLへのアクセスユーザーを指定する
