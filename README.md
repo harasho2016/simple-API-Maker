@@ -12,8 +12,8 @@ API Bootstrap. You can make API easily by using MySQL/postgreSQL/SQLite. You can
 ### 開発速度の向上  
 	- SPA開発における高速開発化(javascriptからまるでDBを直接操作できるかのように)  
 
-### 車輪の再開発の防止  
-	- 同じようなAPIを作らずに済む  
+### セキュリティ  
+	- サーバーサイドスクリプトの脆弱性とかを見ずに済む？  
 
 
 ## 使い方  
@@ -60,19 +60,19 @@ API Bootstrap. You can make API easily by using MySQL/postgreSQL/SQLite. You can
 
 ## 値例  
 ### SELECT  
-	http://127.0.01/{VersionInfo}/{DBName}/{TableName}  
+	http://127.0.0.1/{VersionInfo}/{DBName}/{TableName}  
 	=> SELECT * FROM DBName.TableName LIMIT 50  
-	http://127.0.01/{VersionInfo}/{DBName}/{TableName}?{colName1}=val1&{colName2}=val2&OrderBy=DESC&OrderByTarget={colName1}&MethodName=SELECT&qm_limit=15  
+	http://127.0.0.1/{VersionInfo}/{DBName}/{TableName}?{colName1}=val1&{colName2}=val2&OrderBy=DESC&OrderByTarget={colName1}&MethodName=SELECT&qm_limit=15  
 	=> SELECT * FROM DBName.TableName WHERE {colName1}=val1 AND {colName2}=val2 Order by {colName1} DESC LIMIT 15  
 
 ### INSERT  
-	http://127.0.01/{VersionInfo}/{DBName}/{TableName}?qm_methodName=INSERT&{colName1}=val1&{colName2}=val2  
+	http://127.0.0.1/{VersionInfo}/{DBName}/{TableName}?qm_methodName=INSERT&{colName1}=val1&{colName2}=val2  
 	=> INSERT DBName.TableName (colName1, colName2) VALUE('val1', 'val2');  
 
 ### UPDATE  
-	http://127.0.01/{VersionInfo}/{DBName}/{TableName}?{colName1}=val1&{colName2}=val2&methodName=UPDATE&set_{colName1}=val3  
+	http://127.0.0.1/{VersionInfo}/{DBName}/{TableName}?{colName1}=val1&{colName2}=val2&methodName=UPDATE&set_{colName1}=val3  
 	=> UPDATE DBName.TableName SET  {colName1}=val3  WHERE {colName1}=val1 AND {colName2}=val2 LIMIT 10  
 
 ### DELETE  
-	http://127.0.01/{VersionInfo}/{DBName}/{TableName}?{colName1}=val1&MethodName=DELETE  
+	http://127.0.0.1/{VersionInfo}/{DBName}/{TableName}?{colName1}=val1&MethodName=DELETE  
 	=> DELETE FROM DBName.TableName WHERE {colName1}=val1;  
