@@ -1,0 +1,78 @@
+/*　MySQLのAPI
+========================================= */
+
+
+/* できること
+========================================= */
+
+
+/* 目的
+========================================= */
+  ■ DBアクセスの負荷軽減
+	- Squidとの併用モデル
+	- 
+  ■ セキュリティ向上
+	- 
+  ■ 開発速度の向上
+	- SPA開発における高速開発化
+
+
+/* 使い方
+========================================= */
+  ■ 呼び出し方
+	/{VersionInfo}/{DBName}/{TableName}?{columnName}=val&set_{columnName}=val&{FunctionName}=val
+
+  ■ Version Info
+	- 定義されていればどんな値でも可能
+	- e.g. v0.1~v999.99
+
+  ■ DBName
+	- 設定ファイル(var.php)に記述している値を優先
+		- その場合、URLにはどんな値を埋め込んでも良い
+	- 記述がない場合は、URLに埋め込まれている値を参照する
+
+  ■ TableName
+	- DBに存在するテーブル名
+
+  ■ QueryMethod(All)
+	▼ MethodName = Select, Insert, Update, Delete
+		-　メソッド名
+	▼ {columnName}
+		if SELECT, UPDATE, DELETE
+			- "Where" Selecter
+		else if insert
+			- "Insert" Target
+
+  ■ QueryMethod(only UPDATE)
+	▼ set_{columnName}
+		- "UPDATE(SET)" Target
+
+  ■ QueryMethod(only Select)
+	▼ numCountBool=true, false(default)
+		- trueの場合Select count(*) from {tableName}
+		- defaultはfalse
+
+	▼ orderBy=RAND, DESC, ASC
+		- ソート順
+		- DESCとASCを指定した場合はorderByTarget={columnName}を指定する必要アリ
+		- defaultは無指定
+
+	▼ limit=1
+		- 返却数
+		- 無指定の場合は50が
+
+/* 値例
+========================================= */
+  ■ SELECT
+	http://localhost/06_api_bootstrap/website/v0.1/com_game/game_master
+	http://localhost/06_api_bootstrap/website/v0.1/com_game/game_master?rev=1&gameId=1&qm_orderBy=DESC&qm_orderByTarget=gameId&qm_limit=101
+
+  ■ INSERT
+	http://localhost/06_api_bootstrap/website/v0.1/api/game_master?qm_methodName=INSERT&set_gameId=30&gameId=3
+
+  ■ UPDATE
+	http://localhost/06_api_bootstrap/website/v0.1/api/game_master?qm_methodName=UPDATE&set_gameId=1&gameId=2
+
+  ■ DELETE
+	http://localhost/06_api_bootstrap/website/v0.1/api/game_master?qm_methodName=DELETE&gameId=3
+
