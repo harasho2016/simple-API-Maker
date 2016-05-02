@@ -44,29 +44,29 @@ API Bootstrap. You can make API easily by using MySQL. You can set up within 5 m
 	- DBに存在するテーブル名  
 
 ■ QueryMethod(All)  
-	▼ MethodName = Select, Insert, Update, Delete  
+	- MethodName = Select, Insert, Update, Delete  
 		-　メソッド名  
-	▼ {columnName}  
+	- {columnName}  
 		if SELECT, UPDATE, DELETE  
 			- "Where" Selecter  
 		else if insert  
 			- "Insert" Target  
 
 ■ QueryMethod(only UPDATE)  
-	▼ set_{columnName}  
+	- set_{columnName}  
 		- "UPDATE(SET)" Target  
 
 ■ QueryMethod(only Select)  
-	▼ numCountBool=true, false(default)  
+	- numCountBool=true, false(default)  
 		- trueの場合Select count(*) from {tableName}  
 		- defaultはfalse  
 
-	▼ orderBy=RAND, DESC, ASC  
+	- orderBy=RAND, DESC, ASC  
 		- ソート順  
 		- DESCとASCを指定した場合はorderByTarget={columnName}を指定する必要アリ  
 		- defaultは無指定  
 
-	▼ limit=1  
+	- limit=1  
 		- 返却数  
 		- 無指定の場合は50が  
 
