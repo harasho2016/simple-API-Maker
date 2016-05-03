@@ -43,8 +43,13 @@
 	// Evaluate Query Method and Make "SQL" and Execute
 	$i = 0;
 	$targetSQL = $targetSQL.$selWhere.$selOrderBy.$selLimit;
+	$stmt = $dbc->prepare($targetSQL);
+	// $stmt->bindParam(1, $value, PDO::PARAM_STR); 
+	$stmt->execute();
+
 	try{
-	    foreach ($dbc->query($targetSQL) as $row) {
+		// foreach ($dbc->query($targetSQL) as $row) {  // you shuld not use this script for Security reason(SQL Injection)
+		while ($row = $stmt->fetch()) {
 		    for($j=0; $j<count($validCol); $j++){
 		    	$data["data"][$i][$validCol[$j]] = $row[$validCol[$j]];
 		    }
